@@ -1,6 +1,6 @@
-# Neural encoding and decoding model for handwriting
+# Neural encoding and decoding models for handwriting
 ## Overview
-This repository contains the code for the paper Wang et al., 2025 "Cortical representation of multidimensional handwriting movement and implications for neuroprostheses".
+This repository contains the core codes for the paper Wang et al., 2025 "Cortical representation of multidimensional handwriting movement and implications for neuroprostheses".
 
 ## Installation
 Set up a new environment with `Python==3.9` and using the provided `requirements.txt` as follows:

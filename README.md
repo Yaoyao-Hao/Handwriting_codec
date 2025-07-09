@@ -1,6 +1,6 @@
 # Handwriting_code
 ## Overview
-This repository contains the code for the paper "Cortical representation of multidimensional handwriting movement" (unpublished).
+This repository contains the code for the paper Wang et al., 2025 "Cortical representation of multidimensional handwriting movement and implications for neuroprostheses".
 
 ## Installation
 Clone this repository, change into the project directory, and install with 'pip install .'. Feel free to contact us if you encounter any installation issues.

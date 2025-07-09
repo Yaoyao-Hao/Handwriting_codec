@@ -3,7 +3,7 @@
 This repository contains the code for the paper Wang et al., 2025 "Cortical representation of multidimensional handwriting movement and implications for neuroprostheses".
 
 ## Installation
-Set up a new environment and using the provided `requirements.txt` as follows:
+Set up a new environment with `Python==3.9` and using the provided `requirements.txt` as follows:
 ```
 pip install -r requirements.txt
 ```

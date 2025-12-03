@@ -10,7 +10,7 @@ pip install -r requirements.txt
 This will install the key Python packages to run this code
 
 ## Usage
-* **encoding model(fig4d,figS6).py:**
+* **encoding model(fig4d,figS7).py:**
 This module uses multidimensional handwriting data to predict single-neuron firing rates during imagined handwriting. We systematically test different combinations of multidimensional handwriting data as inputs:
 ```Python
 dims = ['Vxy','Vxyz','Vxy_grip','Vxy_pres','Vxy_emg']
@@ -20,7 +20,7 @@ For both strokes and pen lifts, we fit a Linear-Nonlinear Poisson (LNP) model se
 theta_lnp = fit_lnp(X_train, y_train, num_epochs, input_dim) # Fit LNP model
 predict = predict_fr_lnp(X_test,input_dim, theta_lnp) # Test LNP model
 ```
-* **full model-(fig4f,figS7).py:**
+* **full model-(fig4f,figS8).py:**
 This module evaluates the uniqueness of each handwriting dimension in neural encoding by removing corresponding dimension from the full model. Firstly, train a full model using all dimensions of handwriting data：
 ```Python
 theta_lnp = fit_lnp(X_train, y_train, num_epochs) # Fit the full model
@@ -37,10 +37,9 @@ mi = metrics.mutual_info_score(y_true, predict_disc) # mutual information
 bps_file[neuron,seg] = mi/len(predict_disc)/np.mean(y_true) # bits per spike
 ```
 * **handwriting_decoding(fig5).py:**
-This module decodes each subject's multidimensional handwriting data (velocity, grip force and pressure) from neural signals using LSTM networks, with separate decoder models trained for stroke and pen lift.
+This module decodes each subject's multidimensional handwriting data (velocity, grip force and pressure) from neural signals using LSTM network.
 ```Python
-stroke_model = stroke_LSTM(input_dim=bined_spk_cv.shape[1], hidden_dim=16, num_layers=1, output_dim=4).to('cuda')
-cohesion_model = cohesion_LSTM(input_dim=bined_spk_cv.shape[1], hidden_dim=32, num_layers=1, output_dim=4).to('cuda')
+single_model = LSTM(input_dim=bined_spk_cv.shape[1], hidden_dim=32, num_layers=1, output_dim=5).to('cuda')
 ```
 * **dtw_recognition(fig5).py:**
 This module recognizes the decoded results as Chinese characters in the character library using the dynamic time warping (DTW) algorithm.
